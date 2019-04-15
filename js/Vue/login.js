@@ -18,12 +18,13 @@ let app = new Vue({
                 type: 'post',
                 url: _this.serverUrl + '/admin',
                 contentType: "application/json; charset=utf-8",
-                data:JSON.stringify({
-                    "adminName":_this.admin,
-                    "password":_this.password
+                data: JSON.stringify({
+                    "adminName": _this.admin,
+                    "password": _this.password
                 }),
                 success: function (json) {
-                    if(json.code == 1){
+                    console.log(json);
+                    if (json.code == 1) {
                         document.cookie = "adminName=" + json.data.adminName.toString();
                         document.cookie = "adminId=" + json.data.adminId.toString();
                         if (window.history.length > 1) {
@@ -34,9 +35,10 @@ let app = new Vue({
                     }
                     console.log(json.result);
                 },
-                error:function (json) {
+                error: function (json) {
                     console.log(json)
                 }
             });
         }
+    }
 });
