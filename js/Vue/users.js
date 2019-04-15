@@ -15,17 +15,21 @@ let app = new Vue({
     methods: {
         findUserList: function () {
             let _this = this;
-            $.ajax({
-                type: 'get',
-                url: this.serverUrl + '/userList',
-                success: function (json) {
-                    for(let i in json)
-                        _this.dataList.push(json[i]);
-                },
-                error:function (json) {
-                    console.log(json)
-                }
-            });
+            this.$http.get(this.serverUrl + '/userList')
+                .then((response)=>{
+                    _this.dataList = response.body;
+                });
+            // $.ajax({
+            //     type: 'get',
+            //     url: this.serverUrl + '/userList',
+            //     success: function (json) {
+            //         for(let i in json)
+            //             _this.dataList.push(json[i]);
+            //     },
+            //     error:function (json) {
+            //         console.log(json)
+            //     }
+            // });
         }
     }
 });
