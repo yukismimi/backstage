@@ -20,18 +20,6 @@ let app = new Vue({
                 .then((response)=>{
                     _this.dataList = response.body;
                 });
-            // $.ajax({
-            //     type: 'get',
-            //     url: this.serverUrl + '/bookList',
-            //     success: function (json) {
-            //         _this.dataList = [];
-            //         for(let i in json)
-            //             _this.dataList.push(json[i]);
-            //     },
-            //     error:function (json) {
-            //         console.log(json)
-            //     }
-            // });
         },
         click: function () {
             this.flag = false;
@@ -55,29 +43,6 @@ let app = new Vue({
                 layer.msg('更新成功');
                 _this.findBookList();
             });
-            // $.ajax({
-            //     type: 'put',
-            //     url: this.serverUrl + '/book',
-            //     contentType: "application/json; charset=utf-8",
-            //     data:JSON.stringify({
-            //         "id":this.books[index].id,
-            //         "bookName":this.books[index].bookName,
-            //         "author":this.books[index].author,
-            //         "price":this.books[index].price,
-            //         "stock":this.books[index].stock,
-            //         "press":this.books[index].press,
-            //         "otherInfo":this.books[index].otherInfo,
-            //         "onSellStatus":this.books[index].onSellStatus,
-            //         "bookClass":this.books[index].bookClass
-            //     }),
-            //     success: function (json) {
-            //         console.log(json);
-            //         _this.findBookList();
-            //     },
-            //     error:function (json) {
-            //         console.log(json)
-            //     }
-            // });
         },
         deleteBook: function (index) {
             let _this = this;
@@ -86,17 +51,6 @@ let app = new Vue({
                     console.log(response.body);
                     _this.findBookList();
                 });
-            // $.ajax({
-            //     type: 'delete',
-            //     url: this.serverUrl + '/book?id=' + this.books[index].id,
-            //     success: function (json) {
-            //         console.log(json);
-            //         _this.findBookList();
-            //     },
-            //     error:function (json) {
-            //         console.log(json)
-            //     }
-            // });
         }
     }
 });

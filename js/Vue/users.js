@@ -19,17 +19,6 @@ let app = new Vue({
                 .then((response)=>{
                     _this.dataList = response.body;
                 });
-            // $.ajax({
-            //     type: 'get',
-            //     url: this.serverUrl + '/userList',
-            //     success: function (json) {
-            //         for(let i in json)
-            //             _this.dataList.push(json[i]);
-            //     },
-            //     error:function (json) {
-            //         console.log(json)
-            //     }
-            // });
         }
     }
 });
